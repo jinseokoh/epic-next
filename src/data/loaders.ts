@@ -42,7 +42,7 @@ export async function getHomePageData() {
           },
           'layout.features-section': {
             populate: {
-              feature: {
+              features: {
                 populate: true,
               },
             },
@@ -51,6 +51,30 @@ export async function getHomePageData() {
       },
     },
   })
+  console.log(`🚀`, url.search);
+
+  return await fetchData(url.href)
+}
+
+export async function getGlobalData() {
+  const url = new URL('/api/global', baseUrl)
+
+  url.search = qs.stringify({
+    populate: [
+      'header.logoText',
+      'header.ctaButton',
+      'footer.logoText',
+      'footer.socialLinks',
+    ],
+  })
+  console.log(`🚀`, url.search)
+
+  return await fetchData(url.href)
+}
+
+
+export async function getGlobalPageMetadata() {
+  const url = new URL('/api/global', baseUrl)
 
   return await fetchData(url.href)
 }

@@ -25,7 +25,6 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
-  console.dir(data, { depth: null });
   const { heading, subHeading, image, link } = data;
   const imageURL = "http://localhost:1337" + image.url;
   // const imageURL = "https://delicate-dawn-ac25646e6d.media.strapiapp.com/003_image_fix_0db4ed29aa.png";
@@ -35,7 +34,7 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
       <StrapiImage
         alt={image.alternativeText ?? "no alternative text"}
         className="absolute inset-0 object-cover w-full h-full aspect/16:9"
-        src={image.url}
+        src={imageURL}
         height={1080}
         width={1920}
       />

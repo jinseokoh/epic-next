@@ -18,27 +18,29 @@ interface FeatureProps {
   icon: string;
 }
 
-interface FeatureSectionProps {
+interface FeaturesSectionProps {
   id: number;
   __component: string;
   title: string;
   description: string;
-  feature: FeatureProps[];
+  features: FeatureProps[];
 }
 
-export function FeatureSection({
+export function FeaturesSection({
   data,
 }: {
-  readonly data: FeatureSectionProps;
+  readonly data: FeaturesSectionProps;
 }) {
-  const { feature } = data;
-  console.dir(feature, { depth: null });
+  const { features } = data;
+
+  console.log(`👹`, data);
+
   return (
     <div className="">
       <div className="flex-1">
         <section className="container px-4 py-6 mx-auto md:px-6 lg:py-24">
           <div className="grid gap-8 md:grid-cols-3">
-            {feature.map((feature) => (
+            {features.map((feature) => (
               <div
                 key={feature.id}
                 className="flex flex-col items-center text-center"

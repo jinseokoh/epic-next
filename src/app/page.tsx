@@ -1,6 +1,6 @@
 import { getHomePageData } from "@/data/loaders";
 
-import { FeatureSection } from "@/components/custom/features-section";
+import { FeaturesSection } from "@/components/custom/features-section";
 import { HeroSection } from "@/components/custom/hero-section";
 
 export default async function Home() {
@@ -11,7 +11,7 @@ export default async function Home() {
 
 const blockComponents = {
   "layout.hero-section": HeroSection,
-  "layout.features-section": FeatureSection,
+  "layout.features-section": FeaturesSection,
 };
 
 function blockRenderer(block: any) {
