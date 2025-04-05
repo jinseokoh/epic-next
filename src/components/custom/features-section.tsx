@@ -32,9 +32,6 @@ export function FeaturesSection({
   readonly data: FeaturesSectionProps;
 }) {
   const { features } = data;
-
-  console.log(`👹`, data);
-
   return (
     <div className="">
       <div className="flex-1">

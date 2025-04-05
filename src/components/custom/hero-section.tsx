@@ -26,15 +26,12 @@ interface HeroSectionProps {
 
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   const { heading, subHeading, image, link } = data;
-  const imageURL = "http://localhost:1337" + image.url;
-  // const imageURL = "https://delicate-dawn-ac25646e6d.media.strapiapp.com/003_image_fix_0db4ed29aa.png";
-
   return (
     <header className="relative h-[600px] overflow-hidden">
       <StrapiImage
         alt={image.alternativeText ?? "no alternative text"}
         className="absolute inset-0 object-cover w-full h-full aspect/16:9"
-        src={imageURL}
+        src={image.url}
         height={1080}
         width={1920}
       />
