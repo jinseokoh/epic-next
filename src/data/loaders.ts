@@ -51,9 +51,10 @@ export async function getHomePageData() {
       },
     },
   })
-  console.log(`🚀`, url.search);
-
-  return await fetchData(url.href)
+  console.log(`🏡 home page qs`, url.search)
+  const data = await fetchData(url.href)
+  console.log(`🏡 home page data`, JSON.stringify(data, null, 2))
+  return data
 }
 
 export async function getGlobalData() {
@@ -67,9 +68,10 @@ export async function getGlobalData() {
       'footer.socialLinks',
     ],
   })
-  console.log(`🚀`, url.search)
-
-  return await fetchData(url.href)
+  console.log(`📋 global qs`, url.search)
+  const data = await fetchData(url.href)
+  console.log(`📋 global data`, JSON.stringify(data, null, 2))
+  return data
 }
 
 export async function getGlobalPageMetadata() {
@@ -78,6 +80,8 @@ export async function getGlobalPageMetadata() {
     fields: ['title', 'description'],
   })
 
-  console.log(`🦊`, url.href)
-  return await fetchData(url.href)
+  console.log(`🦊 global meta qs`, url.search)
+  const data = await fetchData(url.href)
+  console.log(`🦊 global meta data`, JSON.stringify(data, null, 2))
+  return data
 }
