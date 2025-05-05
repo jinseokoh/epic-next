@@ -1,5 +1,6 @@
 "use client";
 
+import { KakaoLoginButton } from "@/components/custom/kakao-login-button";
 import { StrapiErrors } from "@/components/custom/strapi-errors";
 import { SubmitButton } from "@/components/custom/submit-button";
 import { ZodErrors } from "@/components/custom/zod-errors";
@@ -49,7 +50,7 @@ export function SignupForm() {
                 type="text"
                 placeholder="username"
               />
-              <ZodErrors error={formState.zodErrors?.username} />
+              <ZodErrors error={formState?.zodErrors?.username} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -76,6 +77,7 @@ export function SignupForm() {
           <CardFooter className="flex flex-col">
             <SubmitButton className="w-full" text="Sign Up" loadingText="Loading" />
             <StrapiErrors error={formState?.strapiErrors} />
+            <KakaoLoginButton />
           </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">

@@ -49,3 +49,34 @@ export async function loginUserService(userData: LoginUserProps) {
     throw error
   }
 }
+
+/**
+ * Process Kakao authentication callback
+ * This function should be called from the server-side
+ * @param code - The authorization code returned by Kakao
+ * @returns The user data with JWT
+ */
+export async function processKakaoCallbackService(code: string) {
+  const url = new URL('/api/auth/kakao/callback', baseUrl)
+  url.searchParams.append('code', code)
+
+  try {
+    const response = await fetch(url.toString(), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      console.error('Kakao authentication error:', errorData)
+      throw new Error('Failed to authenticate with Kakao')
+    }
+
+    return response.json()
+  } catch (error) {
+    console.error('Kakao Callback Service Error:', error)
+    throw error
+  }
+}

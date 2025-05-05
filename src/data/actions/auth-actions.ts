@@ -1,4 +1,5 @@
 'use server'
+
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { z } from 'zod'
@@ -40,7 +41,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
       ...prevState,
       zodErrors: validatedFields.error.flatten().fieldErrors,
       strapiErrors: null,
-      message: 'Missing Fields. Failed to Register.',
+      message: '빼먹은 입력 때문에 오류발생. 다시 한번 해봐요.',
     }
   }
 
@@ -51,7 +52,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
       ...prevState,
       strapiErrors: null,
       zodErrors: null,
-      message: 'Ops! Something went wrong. Please try again.',
+      message: '에구머니, 뭔가 오류발생. 다시 한번 해봐요.',
     }
   }
 
@@ -60,7 +61,7 @@ export async function registerUserAction(prevState: any, formData: FormData) {
       ...prevState,
       strapiErrors: responseData.error,
       zodErrors: null,
-      message: 'Failed to Register.',
+      message: '서버에서 오류발견. 망했다.',
     }
   }
 
